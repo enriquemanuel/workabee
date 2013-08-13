@@ -73,7 +73,7 @@ def usage():
     -p --password		Password to log in into the systems via SSH               
     -c --client			Client that you want to run this: Client Name
     -e --environment 		Environment that you want to run: Production | Staging | Test 
-    -a --action (cmd)		Command that you want to run at the moment in the servers: restart, shutdown, start, status, getListOfPatches, patchInstall, patchRollback, qaCheck, tuneConfig, audit
+    -a --action (cmd)		Command that you want to run at the moment in the servers: restart, shutdown, start, status, getListOfPatches, patchInstall, patchRollback, qaCheck, tuneCheck, audit
     -i --patch 			Patch that you want to rollback or remove (optional) - if the cmd is not related to patch this option is not needed
 
     Order: The order is important: user, password, client, environment, action, patch
@@ -182,6 +182,54 @@ def status():
 	session.sendline('ServiceController.sh services.status')
 	session.expect(second_execution)	
 
+def getListOfPatches():
+	global _session
+	session = _session
+    session.sendline('/mnt/asp/utils/app/bbpatch/bbpatch.sh list')
+    session.expect(second_execution)
+
+def restart():
+	global _session
+	session = _session
+    session.sendline('saferestart.sh')
+    session.expect(second_execution)
+
+def shutdown():
+	global _session
+	session = _session
+    session.sendline('safestop.sh')
+    session.expect(second_execution)
+
+def start():
+	global _session
+	session = _session
+    session.sendline('safestart.sh')
+    session.expect(second_execution)
+# to build patchInstall, patchRollback
+"""
+def patchRollback():
+	global _session,_patch
+	session = _session
+    session.sendline('yes|/mnt/asp/utils/app/bbpatch/bbpatch.sh rollback '+ _patch ')
+    session.expect(second_execution)
+"""
+def qaCheck():
+	global _session
+	session = _session
+    session.sendline('qacheck')
+    session.expect(second_execution)
+
+def tuneCheck():
+	global _session
+	session = _session
+    session.sendline('tunecheck')
+    session.expect(second_execution)
+
+def audit():
+    global _session
+	session = _session
+    session.sendline('audit.pl')
+    session.expect(second_execution)
 
 
 if __name__ == "__main__":
