@@ -1,10 +1,5 @@
 #!/usr/bin/env python
 
-__author__ = "Enrique Valenzuela"
-__version__ = "$Revision: 1.1 $"
-__date__ = "$Date: 2013/07/13 11:57:41 $"
-__license__ = "Python"
-
 import pexpect
 import getopt
 import sys
