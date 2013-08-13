@@ -3,7 +3,6 @@
 __author__ = "Enrique Valenzuela"
 __version__ = "$Revision: 1.1 $"
 __date__ = "$Date: 2013/07/13 11:57:41 $"
-__copyright__ = "Copyright (c) 2013 Enrique Valenzuela"
 __license__ = "Python"
 
 import pexpect
