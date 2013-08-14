@@ -183,26 +183,26 @@ def status():
 	session.expect(second_execution)	
 
 def getListOfPatches():
-	global _session
-	session = _session
+    global _session
+    session = _session
     session.sendline('/mnt/asp/utils/app/bbpatch/bbpatch.sh list')
     session.expect(second_execution)
 
 def restart():
-	global _session
-	session = _session
+    global _session
+    session = _session
     session.sendline('saferestart.sh')
     session.expect(second_execution)
 
 def shutdown():
-	global _session
-	session = _session
+    global _session
+    session = _session
     session.sendline('safestop.sh')
     session.expect(second_execution)
 
 def start():
-	global _session
-	session = _session
+    global _session
+    session = _session
     session.sendline('safestart.sh')
     session.expect(second_execution)
 # to build patchInstall, patchRollback
@@ -214,20 +214,20 @@ def patchRollback():
     session.expect(second_execution)
 """
 def qaCheck():
-	global _session
-	session = _session
+    global _session
+    session = _session
     session.sendline('qacheck')
     session.expect(second_execution)
 
 def tuneCheck():
-	global _session
-	session = _session
+    global _session
+    session = _session
     session.sendline('tunecheck')
     session.expect(second_execution)
 
 def audit():
     global _session
-	session = _session
+    session = _session
     session.sendline('audit.pl')
     session.expect(second_execution)
 
